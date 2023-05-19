@@ -1874,6 +1874,8 @@ cdef class AlignmentFile(HTSFile):
         else:
             raise IOError(read_failure_reason(ret))
 
+    def getCurAln(self):
+        return makeAlignedSegment(self.b, self.header)
     ###########################################
     # methods/properties referencing the header
     def is_valid_tid(self, int tid):
